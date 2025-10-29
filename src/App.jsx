@@ -1,8 +1,14 @@
-// src/App.jsx
-export default function App() {
+import Sidebar from './Components/Sidebar';
+import Dashboard from './components/Dashboard';
+import StatCard from './components/StatCard';
+function App() {
   return (
-    <h1 className="text-3xl font-bold underline text-blue-600">
-      Hello world!
-    </h1>
+    // main container 
+    <div className="flex h-screen w-screen overflow-hidden bg-content-bg">
+      <Sidebar />
+      <Dashboard />
+    </div>
   );
 }
+
+export default App;
