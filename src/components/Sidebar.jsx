@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Home, ListChecks, Calendar, Settings, Brain, LogOut, MessageSquare } from "lucide-react";
+import logoImage from '../assets/logo.png'; 
 
 const navItems = [
   { name: "Dashboard", icon: Home, route: "/dashboard" },
@@ -13,9 +14,8 @@ const navItems = [
 
 const Sidebar = ({ onLogout }) => {
   const navigate = useNavigate();
-  const location = useLocation();
+  const location = useLocation(); 
 
-  // Logout handler
   const handleLogout = () => {
     localStorage.removeItem("token");
     sessionStorage.clear();
@@ -24,13 +24,16 @@ const Sidebar = ({ onLogout }) => {
 
   return (
     <div className="w-64 bg-sidebar-bg h-screen p-4 flex flex-col justify-between border-r border-gray-100 shadow-xl shadow-gray-900/50">
-      
-      {/* Logo + nav */}
+      {/* Top Section (logo + nav) */}
       <div>
+        
+        {/* LOGO */}
         <div className="flex flex-col items-center mb-16 pt-4">
-          <div className="w-16 h-16 bg-primary-purple rounded-lg flex items-center justify-center">
-            <span className="text-white text-3xl font-bold">C</span>
-          </div>
+          <img
+            src={logoImage}
+            alt="CampusMatrix Logo"
+            className="w-24 h-24 object-contain" 
+          />
           <p className="text-lg font-semibold text-primary-purple mt-2 text-center">CampusMatrix</p>
         </div>
 
@@ -56,7 +59,7 @@ const Sidebar = ({ onLogout }) => {
         </nav>
       </div>
 
-      {/* Logout button */}
+      {/* Logout stays at bottom */}
       <div className="pb-4">
         <button
           onClick={handleLogout}
