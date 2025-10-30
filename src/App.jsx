@@ -1,8 +1,20 @@
-// src/App.jsx
-export default function App() {
+import React from 'react';
+import { Outlet } from 'react-router-dom'; // This renders the current page
+import Sidebar from './Components/Sidebar'; // Import our new sidebar
+
+function App() {
   return (
-    <h1 className="text-3xl font-bold underline text-blue-600">
-      Hello world!
-    </h1>
+    <div className="flex h-screen bg-gray-100">
+      {/* Sidebar */}
+      <Sidebar />
+
+      {/* Main Content Area */}
+      <main className="flex-1 h-screen overflow-y-auto p-8">
+        {/* Outlet is where our pages (like PersonalLibrary) will be displayed */}
+        <Outlet />
+      </main>
+    </div>
   );
 }
+
+export default App;

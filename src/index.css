@@ -1,4 +1,25 @@
-/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Optional: Add any global styles here. 
+  For example, setting the background for the entire app to match the white/off-white theme.
+*/
+body {
+  background-color: #f7f7f7; /* Light gray background to match your screenshots */
+  font-family: 'Inter', sans-serif; /* Recommended modern font */
+}
+
+/* Define the custom primary purple color */
+.text-primary-purple {
+  color: #7c3aed; /* Example purple shade */
+}
+.bg-primary-purple {
+  background-color: #7c3aed;
+}
+.hover\:bg-primary-purple\/90:hover {
+  background-color: rgba(124, 58, 237, 0.9);
+}
+.border-primary-purple {
+  border-color: #7c3aed;
+}
