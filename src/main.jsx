@@ -10,6 +10,7 @@ import {
 
 import HomePage from './pages/HomePage'
 import SignUpPage from './pages/SignUpPage'
+import LoginPage from './pages/LoginPage';
 
 // Define the routes: Home Page at '/' and Sign Up at '/signup'
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUpPage />, // This is your sign up form page
+  },
+   {
+    path: "/LoginPage",
+    element: <LoginPage />, // This is your sign up form page
   },
 ]);
 

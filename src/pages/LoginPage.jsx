@@ -1,13 +1,13 @@
-// src/pages/SignUpPage.jsx
+// src/pages/LoginPage.jsx
 import React from 'react';
-import { Link } from 'react-router-dom'; // <--- NEW IMPORT
-import Card from '../components/Card'; 
+import { Link } from 'react-router-dom'; // Import Link for navigation
+import Card from '../components/Card';
 import logo from '../assets/logo.jpg'; 
 
-function SignUpPage() {
-  const handleCreateAccount = (e) => {
-    e.preventDefault(); 
-    alert("Account Creation Attempted!"); 
+function LoginPage() {
+  const handleLogin = (e) => {
+    e.preventDefault();
+    alert("Login Attempted!");
   };
 
   return (
@@ -28,52 +28,53 @@ function SignUpPage() {
         
         {/* Main Heading */}
         <h1 className="text-3xl font-bold text-gray-900 mb-8">
-          Create Your Account
+          Welcome Back
         </h1>
         
-        {/* Sign Up Form */}
-        <form onSubmit={handleCreateAccount} className="w-full space-y-4">
+        {/* Login Form */}
+        <form onSubmit={handleLogin} className="w-full space-y-4">
           
-          <input
-            type="text"
-            placeholder="Full Name"
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition duration-150"
-          />
+          {/* Email Address Input */}
           <input
             type="email"
             placeholder="Email Address"
             required
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition duration-150"
           />
+          
+          {/* Password Input */}
           <input
             type="password"
             placeholder="Password"
             required
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition duration-150"
           />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition duration-150"
-          />
           
-          {/* Create Account Button */}
+          {/* Login Button */}
           <button
             type="submit"
             className="w-full mt-6 px-8 py-3 text-lg font-semibold text-white bg-purple-700 hover:bg-purple-800 rounded-lg transition duration-150 ease-in-out shadow-md"
           >
-            Create Account
+            Login
           </button>
         </form>
         
-        {/* Login Link: Uses <Link> to go back to the Home Page (/) */}
-        <div className="mt-6 text-sm text-center">
-          Already have an account?{' '}
-          <Link to="/LoginPage" className="text-purple-700 font-medium hover:text-purple-800 transition">
-            Login
+        {/* Footer Links (Forgot Password & Sign Up) */}
+        <div className="mt-6 text-sm text-center space-y-2">
+          
+          {/* Forgot Password */}
+          <Link to="/" className="text-gray-500 hover:text-purple-700 transition block">
+            Forgot Password?
           </Link>
+
+          {/* Don't have an account? Sign Up */}
+          <div className='text-gray-500'>
+            Don't have an account? 
+            <Link to="/signup" className="text-purple-700 font-medium hover:text-purple-800 transition ml-1">
+              Sign Up
+            </Link>
+          </div>
+          
         </div>
         
       </Card>
@@ -81,4 +82,4 @@ function SignUpPage() {
   );
 }
 
-export default SignUpPage;
+export default LoginPage;

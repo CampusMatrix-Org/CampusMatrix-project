@@ -50,7 +50,7 @@ function HomePage() {
 
           {/* Secondary Button: Login (Navigates back to /) */}
           <Link 
-            to="/" // <--- Navigates to the Home Page (current page)
+            to="/LoginPage" // <--- Navigates to the Home Page (current page)
             className="
               px-8 py-3 
               text-base font-semibold text-purple-600 
