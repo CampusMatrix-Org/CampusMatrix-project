@@ -1,36 +1,21 @@
-// src/App.jsx
-
+// src/pages/HomePage.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Card from '../components/Card';
-import FeatureIcon from '../components/FeatureIcon'; // Import the new component
-import logo from '../assets/logo.jpg'; // KEEP this import for your image
+import FeatureIcon from '../components/FeatureIcon'; 
+import logo from '../assets/logo.jpg'; 
 
 
-function App() {
-  // Define placeholder functions for navigation (in a real app, this would use React Router)
-  const handleSignUp = () => {
-    alert("Navigating to Sign Up Page...");
-    // You would use navigate('/signup') here
-  };
-  const handleLogin = () => {
-    alert("Navigating to Login Page...");
-    // You would use navigate('/login') here
-  };
-
-
+function HomePage() { 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <Card>
         
-        {/* 1. LOGO AND NAME (Styling Adjusted to Match Image) */}
-        {/* The image shows a complex logo structure, here we just show the image and text: */}
+        {/* ... (Logo, Heading, and Feature Icons remain the same) ... */}
         <div className="flex flex-col items-center mb-10">
-          <img src={logo} alt="CampusMatrix Logo" className="w-30 h-40 object-contain text-purple-700" />
-          {/* We'll assume the text is part of the image, or you can add it back if needed: */}
-          {/* <span className="text-lg font-bold text-purple-700 mt-[-10px]">CampusMatrix</span> */}
+          <img src={logo} alt="CampusMatrix Logo" className="w-15 h-15 object-contain" />
         </div>
         
-        {/* 2. MAIN HEADING AND DESCRIPTION */}
         <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3 text-center leading-tight">
           Your All-in-One University Hub
         </h1>
@@ -38,21 +23,18 @@ function App() {
           Simplify your academic life with smart tools and personalized support.
         </p>
         
-        {/* 3. FEATURE ICONS CONTAINER */}
         <div className="flex justify-between w-full max-w-sm mb-12">
-          {/* Tasks - Use a List Check emoji */}
           <FeatureIcon iconText="📝" label="Tasks" /> 
-          {/* Schedule - Use a Calendar emoji */}
           <FeatureIcon iconText="📅" label="Schedule" />
-          {/* AI Assistant - Use a Lightbulb emoji */}
           <FeatureIcon iconText="💡" label="AI Assistant" />
         </div>
 
-        {/* 4. ACTION BUTTONS (Click handlers implemented) */}
+        {/* 4. ACTION BUTTONS (Using <Link> for navigation) */}
         <div className="flex space-x-4 mb-10">
-          {/* Primary Button: Sign Up for Free (Solid Purple) */}
-          <button 
-            onClick={handleSignUp}
+          
+          {/* Primary Button: Sign Up for Free (Navigates to /signup) */}
+          <Link 
+            to="/signup" // <--- **This makes the navigation work!**
             className="
               px-8 py-3 
               text-base font-semibold text-white 
@@ -60,27 +42,29 @@ function App() {
               rounded-full 
               transition duration-150 ease-in-out 
               shadow-lg shadow-purple-500/50
+              flex items-center justify-center 
             "
           >
             Sign Up for Free
-          </button>
+          </Link>
 
-          {/* Secondary Button: Login (Outline Purple) */}
-          <button 
-            onClick={handleLogin}
+          {/* Secondary Button: Login (Navigates back to /) */}
+          <Link 
+            to="/" // <--- Navigates to the Home Page (current page)
             className="
               px-8 py-3 
               text-base font-semibold text-purple-600 
               border border-purple-400 hover:bg-purple-50 
               rounded-full 
               transition duration-150 ease-in-out
+              flex items-center justify-center 
             "
           >
             Login
-          </button>
+          </Link>
         </div>
 
-        {/* 5. FOOTER LINKS (About, Contact, Privacy) */}
+        {/* 5. FOOTER LINKS */}
         <div className="flex space-x-6 text-sm text-gray-400">
           <a href="/about" className="hover:text-purple-600 transition">About</a>
           <a href="/contact" className="hover:text-purple-600 transition">Contact</a>
@@ -92,4 +76,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;
